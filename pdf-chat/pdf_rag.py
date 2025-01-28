@@ -4,6 +4,7 @@ from langchain_ollama.llms import OllamaLLM
 from langchain_community.document_loaders import PDFPlumberLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
+import streamlit as st
 
 template = """
 You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
@@ -58,7 +59,26 @@ def answer_question(question, documents):
     prompt = ChatPromptTemplate.from_template(template)
     chain = prompt | model
 
-    #returns the answer
+    #returns the answer usig the chain and the question and context
     return chain.invoke({"question": question, "context": context})
 
+uploaded_file = st.file_uploader(
+    "Upload PDF", 
+    type=['pdf'], 
+    accept_multiple_files=False
+    )
+if uploaded_file:
+    upload_pdf(uploaded_file)
+    documents = load_pdf(pdfs_directory + uploaded_file.name)
+    chunked_documents = split_text(documents)
+    index_docs(chunked_documents)
 
+    question = st.chat_input()
+    
+    if question:
+        st.chat_message("user").write(question)
+        related_docs = retrieve_docs(question)
+        answer = answer_question(question, related_docs)
+        st.chat_message("assistant").write(answer)
+        
+   
