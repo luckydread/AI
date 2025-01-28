@@ -58,7 +58,7 @@ def answer_question(question, documents):
     prompt = ChatPromptTemplate.from_template(template)
     chain = prompt | model
 
-    #returns the answer
+    #returns the answer usig the chain and the question and context
     return chain.invoke({"question": question, "context": context})
 
 
