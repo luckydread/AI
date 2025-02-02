@@ -5,6 +5,14 @@ from langchain_community.document_loaders import PDFPlumberLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
 import streamlit as st
+import os
+import asyncio
+import asyncpg
+from dotenv import load_dotenv
+
+load_dotenv()
+
+connection_string = os.getenv('DB_URL')
 
 template = """
 You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
@@ -80,5 +88,7 @@ if uploaded_file:
         related_docs = retrieve_docs(question)
         answer = answer_question(question, related_docs)
         st.chat_message("assistant").write(answer)
+
+
         
    
