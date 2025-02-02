@@ -6,8 +6,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
 import streamlit as st
 import os
-import asyncio
-import asyncpg
 from dotenv import load_dotenv
 
 load_dotenv()
