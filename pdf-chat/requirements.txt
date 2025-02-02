@@ -1,5 +1,5 @@
-streamlit
-langchain_core
-langchain_community
-langchain_ollama
-pdfplumber
+streamlit===1.41.1
+langchain_core===0.3.32
+langchain_community===0.3.16
+langchain_ollama===0.2.2
+pdfplumber===0.11.5
