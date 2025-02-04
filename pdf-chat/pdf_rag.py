@@ -73,6 +73,9 @@ uploaded_file = st.file_uploader(
     type=['pdf'], 
     accept_multiple_files=False
     )
+
+
+
 if uploaded_file:
     upload_pdf(uploaded_file)
     documents = load_pdf(pdfs_directory + uploaded_file.name)
