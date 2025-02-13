@@ -1,0 +1,21 @@
+{
+  "name": "openai-rag-fga",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tsx src/index.ts",
+    "fga:init": "npx tsx ./scripts/fga-init.ts"
+  },
+  "author": {
+    "name": "Auth0 Inc.",
+    "url": "https://auth0.com"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@openfga/sdk": "^0.8.0",
+    "dotenv": "^16.4.7",
+    "faiss-node": "^0.5.1",
+    "openai": "^4.79.1"
+  }
+}

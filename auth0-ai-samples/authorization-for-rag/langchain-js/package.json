@@ -1,0 +1,26 @@
+{
+  "name": "auth0-langchain-rag-js",
+  "version": "0.0.0",
+  "description": "Demonstrates the usage of the Okta FGA with LangChain to query documents with permission checks.",
+  "x-type": "module",
+  "main": "index.js",
+  "author": {
+    "name": "Auth0 Inc.",
+    "url": "https://auth0.com"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "npx tsx index.ts",
+    "fga:init": "npx tsx ./scripts/fga-init.ts"
+  },
+  "dependencies": {
+    "@langchain/openai": "^0.4.2",
+    "@openfga/sdk": "^0.8.0",
+    "auth0-ai-js": "github:auth0-lab/auth0-ai-js#alpha-1",
+    "dotenv": "^16.4.7",
+    "langchain": "^0.3.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7"
+  }
+}
